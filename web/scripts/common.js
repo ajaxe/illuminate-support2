@@ -9,7 +9,7 @@ function renderReleaseList() {
 }
 
 function showReleaseList(data) {
-  const $releases = $("#releases .content:first");
+  const $releases = $("#releases .content").first();
   var reader = new commonmark.Parser();
   var writer = new commonmark.HtmlRenderer();
   var parsed = reader.parse(data);
