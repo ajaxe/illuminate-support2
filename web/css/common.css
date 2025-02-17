@@ -1,0 +1,73 @@
+.navbar {
+  padding: 8px 16px;
+}
+.bg-primary {
+  background-color: #eb6864 !important;
+}
+.side-panel {
+  height: 100vh;
+}
+
+.logo {
+  background-image: url(../images/favicon.png);
+  background-size: 3.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 4em;
+  width: 4em;
+  background-color: white;
+  border-radius: 2em;
+  font-size: 3rem;
+}
+
+.side-panel .logo {
+  background-size: 3.5em;
+  height: 4em;
+  width: 4em;
+  border-radius: 2em;
+}
+
+.navbar .logo {
+  background-size: 0.875em;
+  height: 1em;
+  width: 1em;
+  border-radius: 0.5em;
+}
+
+#home .logo {
+  background-size: 1.3125em;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0.75em;
+}
+
+.section {
+  height: 100vh;
+  padding-right: 15px;
+}
+.content-panel {
+  height: 100vh;
+  padding-right: 0;
+}
+
+.section .section-wrapper {
+  width: 100%;
+}
+
+.section > .content:first-child {
+  margin-top: 20vh;
+}
+
+.icon-check2::before {
+  display: inline-block;
+  content: "";
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+@media (min-width: 576px) {
+  .section > .content {
+    width: 80%;
+  }
+}
