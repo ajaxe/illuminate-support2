@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/ajaxe/illuminate-support2/internal/helpers"
 	"github.com/maxence-charriere/go-app/v10/pkg/app"
 )
 
@@ -12,21 +13,26 @@ type ReleasesPage struct {
 }
 
 func (h *ReleasesPage) OnNav(ctx app.Context) {
+	baseURL := app.Window().URL()
+	baseURL.Path = "/web/content/releases.md"
+
+	u := baseURL.String()
+
 	ctx.Async(func() {
-		res, err := http.Get("/web/content/releases.md")
+		helpers.AppLogf("Fetching releases from %s", u)
+		res, err := http.Get(u)
 		if err != nil {
 			app.Log(err)
 			return
 		}
 		defer res.Body.Close()
-		if err != nil {
-			b, _ := io.ReadAll(res.Body)
-			app.Log(string(b))
 
-			ctx.Dispatch(func(ctx app.Context) {
-				app.Window().Get("showReleaseList").Invoke(string(b))
-			})
-		}
+		b, _ := io.ReadAll(res.Body)
+		helpers.AppLog("fetch complete")
+
+		ctx.Dispatch(func(ctx app.Context) {
+			app.Window().Get("showReleaseList").Invoke(string(b))
+		})
 	})
 }
 func (h *ReleasesPage) Render() app.UI {

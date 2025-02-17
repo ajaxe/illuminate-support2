@@ -24,3 +24,7 @@ func AppNavBarItems(options NavListOptions) *NavBarItems {
 func AppNavLeftPanel() *NavLeftPanel {
 	return &NavLeftPanel{}
 }
+
+func AppCodeUpdate() *CodeUpdate {
+	return &CodeUpdate{}
+}

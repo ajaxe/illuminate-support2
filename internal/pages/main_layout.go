@@ -2,6 +2,7 @@ package pages
 
 import (
 	"github.com/ajaxe/illuminate-support2/internal/components"
+	"github.com/ajaxe/illuminate-support2/internal/helpers"
 	"github.com/maxence-charriere/go-app/v10/pkg/app"
 )
 
@@ -15,25 +16,28 @@ func (m *MainLayout) Render() app.UI {
 }
 
 func (m *MainLayout) container() app.UI {
-	return app.Div().Class("container-fluid").
-		ID("main-container").
-		Body(
-			app.Div().Class("row").Body(
-				app.Div().Class("col-lg-3 col-xl-2 bg-primary d-none d-lg-block").Body(
-					m.leftPanel(),
-				),
-				app.Div().Class("col content-panel overflow-hidden").Body(
-					m.rightPanel(),
+	return app.Main().Body(
+		app.Div().Class("container-fluid").
+			ID("main-container").
+			Body(
+				app.Div().Class("row").Body(
+					app.Div().Class("col-lg-3 col-xl-2 bg-primary d-none d-lg-block").Body(
+						m.leftPanel(),
+					),
+					app.Div().Class("col content-panel overflow-hidden").Body(
+						m.rightPanel(),
+					),
 				),
 			),
-		)
+		components.AppCodeUpdate(),
+	)
 }
 func (m *MainLayout) leftPanel() app.UI {
-	app.Log("MainLayout.leftPanel")
+	helpers.AppLog("MainLayout.leftPanel")
 	return components.AppNavLeftPanel()
 }
 
 func (m *MainLayout) rightPanel() app.UI {
-	app.Log("MainLayout.rightPanel")
+	helpers.AppLog("MainLayout.rightPanel")
 	return m.Content
 }
