@@ -65,7 +65,7 @@
 }
 
 .section > .content:first-child {
-  margin-top: 20vh;
+  margin-top: 100px;
 }
 
 .icon-check2::before {
@@ -79,5 +79,11 @@
 @media (min-width: 576px) {
   .section > .content {
     width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .section > .content:first-child {
+    margin-top: 80px;
   }
 }

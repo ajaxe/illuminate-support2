@@ -9,9 +9,9 @@ build: clean
 	@pwsh -Command "Set-Item Env:GOARCH wasm; Set-Item Env:GOOS js; go build -o ./dist/web/app.wasm ./cmd/webapp"
 	@echo "Building server..."
 	@pwsh -Command "Set-Item Env:GOARCH amd64; Set-Item Env:GOOS windows; go build -o ./dist/server.exe ./cmd/webapp/"
-
-run: build
 	@echo "Copying web files..."
 	@pwsh -Command "copy ./web/* ./dist/web/ -Recurse -Force"
+
+run: build
 	@echo "Running server..."
 	cd ./dist && ./server.exe

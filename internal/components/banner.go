@@ -7,7 +7,7 @@ type Banner struct {
 }
 
 func (b *Banner) Render() app.UI {
-	return app.Div().Class("container-fluid p-5 mb-4 bg-body-tertiary rounded-3").
+	return app.Div().Class("container-fluid p-5 mb-4 bg-body-secondary rounded shadow border-start border-top").
 		Body(
 			app.Div().Class("py-5").
 				Body(

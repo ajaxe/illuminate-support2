@@ -17,6 +17,7 @@ func (m *MainLayout) Render() app.UI {
 
 func (m *MainLayout) container() app.UI {
 	return app.Main().Body(
+		components.AppNavBar(),
 		app.Div().Class("container-fluid").
 			ID("main-container").
 			Body(
