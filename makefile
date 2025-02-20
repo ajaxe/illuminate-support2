@@ -15,3 +15,9 @@ build: clean
 run: build
 	@echo "Running server..."
 	cd ./dist && ./server.exe
+
+staticgen: build
+	@echo "Building static site generator..."
+	@pwsh -Command "go build ./cmd/staticgen"
+	@echo "Running static site generator..."
+	cd ./cmd/staticgen && ./staticgen.exe
